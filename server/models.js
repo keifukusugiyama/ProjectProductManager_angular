@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost:27017/projectproductmanagementdb', (err)=>
 });
 
 var ProductSchema = new mongoose.Schema({
-    title: {type:String, minlength:[4, "Minimum 4 characters needed"]},
+    title: {type:String, required:true, minlength:[4, "Title: Minimum 4 characters needed"]},
     price: {type: Number, required:[true, "Price is required"]},
     imageUrl: {type: String}
 }, {timestamps:true})

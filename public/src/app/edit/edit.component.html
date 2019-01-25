@@ -1,0 +1,25 @@
+<h2>Edit {{oneProduct.title}}</h2>
+
+<div *ngIf="EditErrors">
+    <p *ngIf="EditErrors.errors.title" style="color:red">
+      {{EditErrors.errors.title.message}}
+    </p>
+    <p *ngIf="EditErrors.errors.price" style="color:red">
+      {{EditErrors.errors.price.message}}
+    </p>
+</div>
+  
+<form>
+  <label> Title: 
+    <input type="text" name="oneProduct.title" [(ngModel)]="oneProduct.title" />
+  </label>
+  <label> Price: 
+    <input type="number" name="oneProduct.price" [(ngModel)]="oneProduct.price" />
+  </label>
+  <label> Image Url: 
+      <input type="text" name="oneProduct.imageUrl" [(ngModel)]="oneProduct.imageUrl" />
+    </label>
+  <br>
+  <input type="submit" value="Submit" (click)="onSubmitEdit()"/>
+  <button [routerLink]="['/products']">Cancel</button>
+</form>
